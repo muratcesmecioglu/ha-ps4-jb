@@ -1,0 +1,21 @@
+name: "PS4 JB Web Server"
+version: "1.1.0"
+slug: "ps4_jb_webserver"
+description: "Serves static files from the web directory over HTTP"
+url: "https://github.com/muratcesmecioglu/ha-ps4-jb"
+arch:
+  - amd64
+  - aarch64
+  - armhf
+  - armv7
+  - i386
+host_network: true
+startup: "application"
+boot: "auto"
+ports:
+  8000/tcp: 8000
+ingress: true
+ingress_port: 8000
+panel_icon: "mdi:playstation"
+panel_title: "PS4 JB"
+panel_admin: true

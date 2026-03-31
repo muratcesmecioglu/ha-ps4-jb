@@ -1,0 +1,17 @@
+CACHE MANIFEST
+# PSFree-Lapse
+
+cache.html
+index.html
+505exploit.js
+672entrypoint.js
+672kexploit.js
+psfree_lapse_helpers.js
+kpatches.js
+goldhen.bin
+psfree.js
+lapse.js
+main.js
+
+NETWORK:
+*

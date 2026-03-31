@@ -1,0 +1,97 @@
+<html manifest="ps4jb.cache">
+
+<head>
+  <meta charset="utf-8">
+  <title>PS4 Jailbreak For 5.05 - 9.60</title>
+  <style>
+    body {
+      background-color: #252526;
+      color: #cccccc;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    #console {
+      font-family: monospace;
+      background-color: #1e1e1e;
+      color: #cccccc;
+      border: 1px solid #3c3c3c;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    #updateBtn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      background: #555555;
+      color: #aaaaaa;
+      cursor: not-allowed;
+      opacity: 0.7;
+      box-shadow: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>PS4 Jailbreak For 5.05 - 9.60</h2>
+  <div>
+    <button id="updateBtn">Update Goldhen</button>
+  </div>
+  <pre id="console"></pre>
+</body>
+<script>
+  // Clear history and prevent back navigation
+  history.replaceState(null, null, 'index.html');
+  var histlength = history.length;
+  history.go(-histlength);
+  // Logging utility
+  var outputConsole = document.getElementById("console");
+  window.log = function (msg) {
+    outputConsole.textContent += msg + "\n";
+  };
+  // Download progress (% display)
+  function DLProgress(e) {
+    if (!e || !e.total) return;
+    var percent = (Math.round((e.loaded / e.total) * 100));
+    window.log("[CACHE] Downloading... " + percent + "% complete.");
+  }
+  // On cache complete
+  function DisplayCacheProgress() {
+    window.log(" ");
+    window.log("[SUCCESS] Cache installed successfully.");
+    window.log("Page will reload in 3 seconds...");
+    // Delay to show success message before navigation
+    setTimeout(function () { window.log("Reloading..."); }, 2000);
+    // Navigate back to index.html to load the exploit from cache
+    setTimeout(function () { location.reload(); }, 3000);
+  }
+  // On error
+  function DLError(e) {
+    window.log(" ");
+    window.log("[CACHE ERROR] An error occured during Cache...");
+    window.log("[CACHE ERROR] Check if goldhen.bin file included in the directory!!!");
+  }
+  // Event listeners
+  window.applicationCache.addEventListener("progress", DLProgress, false);
+  window.applicationCache.addEventListener("error", DLError, false);
+  window.applicationCache.oncached = function (e) { DisplayCacheProgress(); };
+  window.applicationCache.onupdateready = function (e) { DisplayCacheProgress(); };
+  // Initialization message on DOM load
+  document.addEventListener('DOMContentLoaded', function () {
+    outputConsole.textContent = ""; // Clear console log
+    window.log("AppCache download initiating...");
+    window.log("Please wait, this may take a few seconds.");
+  });
+</script>
+
+</html>
